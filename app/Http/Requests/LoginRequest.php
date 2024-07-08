@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+
 use Illuminate\Foundation\Http\FormRequest;
 
 class LoginRequest extends FormRequest
@@ -23,15 +24,14 @@ class LoginRequest extends FormRequest
         return [
             //
             'username' => 'required',
-            'password' => 'required',
+            'password' => 'required'
         ];
     }
-
     public function messages(): array
     {
-        return [
-            'username.required' => 'اسم المستخدم مطلوب',
-            'password.required' => 'كلمة المرور مطلوبة'
-        ];
+      return [
+            'username.required' => 'يجب ادخال اسم المستخدم',
+            'password.required' => 'يجب ادخال كلمة المرور',
+      ];
     }
 }

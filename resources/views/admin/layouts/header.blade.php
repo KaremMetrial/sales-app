@@ -11,14 +11,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <title>@yield('title')</title>
     <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href={{ asset("admin/plugins/fontawesome-free/css/all.min.css") }}>
+    <link rel="stylesheet" href={{ asset("admin-assets/plugins/fontawesome-free/css/all.min.css") }}>
     <!-- Theme style -->
-    <link rel="stylesheet" href={{ asset("admin/dist/css/adminlte.min.css") }}>
+    <link rel="stylesheet" href={{ asset("admin-assets/dist/css/adminlte.min.css") }}>
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet" href={{ asset("admin/fonts/SansPro/SansPro.min.css") }}>
-    <link rel="stylesheet" href={{ asset("admin/css/bootstrap_rtl-v4.2.1/bootstrap.min.css") }}>
-    <link rel="stylesheet" href={{ asset("admin/css/bootstrap_rtl-v4.2.1/custom_rtl.css") }}>
-    <link rel="stylesheet" href={{ asset("admin/css/mycustomstyle.css") }}>
+    <link rel="stylesheet" href={{ asset("admin-assets/fonts/SansPro/SansPro.min.css") }}>
+    <link rel="stylesheet" href={{ asset("admin-assets/css/bootstrap_rtl-v4.2.1/bootstrap.min.css") }}>
+    <link rel="stylesheet" href={{ asset("admin-assets/css/bootstrap_rtl-v4.2.1/custom_rtl.css") }}>
+    <link rel="stylesheet" href={{ asset("admin-assets/css/mycustomstyle.css") }}>
 
 </head>
 <body class="hold-transition sidebar-mini">
@@ -32,10 +32,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index3.html" class="nav-link">Home</a>
+                <a href="{{ route('admin.dashboard') }}" class="nav-link">الرئيسية</a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="#" class="nav-link">Contact</a>
+                <a href="{{ route('admin.logout') }}" class="nav-link">تسجيل الخروج</a>
             </li>
         </ul>
 
@@ -63,7 +63,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src={{ asset("admin/dist/img/user1-128x128.jpg") }} alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                            <img src={{ asset("admin-assets/dist/img/user1-128x128.jpg") }} alt="User Avatar" class="img-size-50 mr-3 img-circle">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Brad Diesel
@@ -79,7 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src={{ asset("admin/dist/img/user8-128x128.jpg") }} alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src={{ asset("admin-assets/dist/img/user8-128x128.jpg") }} alt="User Avatar" class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     John Pierce
@@ -95,7 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a href="#" class="dropdown-item">
                         <!-- Message Start -->
                         <div class="media">
-                            <img src={{ asset("admin/dist/img/user3-128x128.jpg") }} alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <img src={{ asset("admin-assets/dist/img/user3-128x128.jpg") }} alt="User Avatar" class="img-size-50 img-circle mr-3">
                             <div class="media-body">
                                 <h3 class="dropdown-item-title">
                                     Nora Silvester

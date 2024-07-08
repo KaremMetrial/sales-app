@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\LoginRequest;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -18,5 +16,17 @@ class LoginController extends Controller
     public function login(LoginRequest $request)
     {
 
+        // Attempt to log the admin in using the custom 'admin' guard
+        if (auth()->guard('admin')->attempt(['username' => $request->input('username'), 'password' => $request->input('password')])) {
+            return redirect()->route('admin.dashboard');
+        }
+
+
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return redirect()->route('adminlogin.show');
     }
 }
