@@ -11,12 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('admins', function (Blueprint $table) {
+        Schema::create('admin_panel_settings', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('username')->unique();
-            $table->string('email')->unique();
-            $table->string('password');
+            $table->string('system_name');
+            $table->string('photo');
+            $table->tinyInteger('active')->default(1);
+            $table->string('general_alert');
+            $table->string('address');
+            $table->string('phone');
             $table->integer('added_by');
             $table->integer('updated_by');
             $table->integer('com_code');
@@ -29,6 +31,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('admins');
+        Schema::dropIfExists('admin_panel_settings');
     }
 };

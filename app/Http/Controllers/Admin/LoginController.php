@@ -15,12 +15,11 @@ class LoginController extends Controller
 
     public function login(LoginRequest $request)
     {
-
         // Attempt to log the admin in using the custom 'admin' guard
         if (auth()->guard('admin')->attempt(['username' => $request->input('username'), 'password' => $request->input('password')])) {
             return redirect()->route('admin.dashboard');
         }
-
+        return redirect()->back()->withErrors(['login_error' => 'Invalid username or password']);
 
     }
 
