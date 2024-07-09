@@ -19,6 +19,8 @@ Route::group(['middleware' => 'guest'], function () {
 Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/', [DashboardController::class, 'index'])->name('.dashboard');
     Route::get('/admin-panel-setting/show', [Admin_panel_settingController::class, 'index'])->name('.panel_setting.show');
+    Route::get('/admin-panel-setting/edit', [Admin_panel_settingController::class, 'edit'])->name('.panel_setting.edit');
+    Route::post('/admin-panel-setting/update', [Admin_panel_settingController::class, 'update'])->name('.panel_setting.update');
     Route::get('/logout', [LoginController::class, 'logout'])->name('.logout');
 });
 

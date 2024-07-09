@@ -16,7 +16,7 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title">بيانات الضبط العام</h3>
+                    <h3 class="card-title card_title_center">بيانات الضبط العام</h3>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -80,6 +80,7 @@
                                     @else
                                         لا يوجد تحديث
                                     @endif
+                                        <a href="{{ route('admin.panel_setting.edit') }}" class="btn btn-sm btn-success">تعديل</a>
                                 </td>
                             </tr>
                         </table>

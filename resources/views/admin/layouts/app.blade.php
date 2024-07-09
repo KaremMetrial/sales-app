@@ -1,6 +1,8 @@
 @include('admin.layouts.header')
 @include('admin.layouts.mainsidebar')
 @include('admin.layouts.headerContent')
+@include('admin.alerts.success')
+@include('admin.alerts.error')
 @yield('content')
 @include('admin.layouts.sidebar')
 @include('admin.layouts.footer')
