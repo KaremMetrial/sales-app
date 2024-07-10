@@ -44,6 +44,9 @@ Route::group(['middleware' => 'auth:admin'], function () {
 
 //===============================treasury===================================
     Route::get('/treasury/show', [TreasuryController::class, 'index'])->name('.treasury.index');
+    Route::get('/treasury/create', [TreasuryController::class, 'create'])->name('.treasury.create');
+    Route::post('/treasury/store', [TreasuryController::class, 'store'])->name('.treasury.store');
+    Route::get('/treasury/destroy/{id}', [TreasuryController::class, 'destroy'])->name('.treasury.destroy');
 //==============================.\treasury==================================
 
 

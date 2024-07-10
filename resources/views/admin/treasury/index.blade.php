@@ -16,7 +16,8 @@
         <div class="col-12">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="card-title card_title_center">بيانات الضبط العام</h3>
+                    <h3 class="card-title card_title_center">بيانات الخزن</h3>
+                    <a href="{{ route('admin.treasury.create') }}" class="btn btn-sm btn-success">اضافة جديد</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -25,7 +26,7 @@
                             $i = 1;
                         @endphp
                         <table id="example2" class="table table-bordered table-hover">
-                            <thead>
+                            <thead class="custom_thead">
                             <tr>
                                 <th>مسلسل</th>
                                 <th>اسم الخزنة</th>
@@ -35,6 +36,7 @@
                                 <th>اخر ايصال تحصيل</th>
                                 <th>تاريخ الاضافة</th>
                                 <th>تاريخ التحديث</th>
+                                <th></th>
                             </tr>
                             </thead>
                             <tbody>
@@ -62,7 +64,7 @@
                                         @php
                                             $dt = new DateTime($info->created_at);
                                             $date = $dt->format('Y-m-d');
-                                            $time = $dt->format('g:i');
+                                            $time = $dt->format('H:i');
                                             $newDateTime = date("A",strtotime($time));
                                             $newDateTimeType = (($newDateTime == "AM") ? 'صباحا' : 'مساء');
                                         @endphp
@@ -89,6 +91,11 @@
                                         @else
                                             لا يوجد تحديث
                                         @endif
+                                    </td>
+                                    <td>
+                                        <button  class="btn btn-sm btn-primary">تعديل</button>
+                                        <button data-id="{{ $info->id }}"  class="btn btn-sm btn-info">المزيد</button>
+                                        <a href="{{ route('admin.treasury.destroy', $info->id) }}" class="btn btn-sm btn-danger">حذف</a>
                                     </td>
                                 </tr>
                                 @php
