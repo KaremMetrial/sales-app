@@ -30,7 +30,10 @@
                                        value="{{ $data->system_name }}" placeholder="ادهل اسم الشركة"
                                        oninvalid="setCustomValidity('من فضلك ادخل هذا الحقل')" onchange="try {
                                     setCustomValidity('')
-                                }catch (e) {}" required>
+                                }catch (e) {}">
+                                @error('system_name')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="address">عنوان الشركة</label>
@@ -38,7 +41,10 @@
                                        value="{{ $data->address }}" placeholder="ادهل عنوان الشركة"
                                        oninvalid="setCustomValidity('من فضلك ادخل هذا الحقل')" onchange="try {
                                     setCustomValidity('')
-                                }catch (e) {}" required>
+                                }catch (e) {}">
+                                @error('address')
+                                <span class="text-danger">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="phone">هاتف الشركة</label>
@@ -46,28 +52,35 @@
                                        value="{{ $data->phone }}" placeholder="هاتف الشركة"
                                        oninvalid="setCustomValidity('من فضلك ادخل هذا الحقل')" onchange="try {
                                     setCustomValidity('')
-                                }catch (e) {}" required>
-                                <div class="form-group">
-                                    <label for="general_alert">رسالة تنبيه اعلى الشاشة</label>
-                                    <input type="text" name="general_alert" id="general_alert" class="form-control"
-                                           value="{{ $data->general_alert }}" placeholder="رسالة تنبيه اعلى الشاشة"
-                                           oninvalid="setCustomValidity('من فضلك ادخل هذا الحقل')" onchange="try {
+                                }catch (e) {}">
+                            </div>
+                            @error('phone')
+                            <span class="text-danger">{{ $message }}</span>
+                            @enderror
+                            <div class="form-group">
+                                <label for="general_alert">رسالة تنبيه اعلى الشاشة</label>
+                                <input type="text" name="general_alert" id="general_alert" class="form-control"
+                                       value="{{ $data->general_alert }}" placeholder="رسالة تنبيه اعلى الشاشة"
+                                       oninvalid="setCustomValidity('من فضلك ادخل هذا الحقل')" onchange="try {
                                     setCustomValidity('')
                                 }catch (e) {}">
+                            </div>
+                            <div class="form-group">
+                                <label for="image">شعار الشركة</label>
+                                <div class="image">
+                                    <img src="{{ asset('admin-assets/uploads') . '/' . $data->photo }}"
+                                         alt="لوجو الشركة" class="custom_img">
+                                    <button type="button" class="btn btn-sm btn-danger" id="update_image">تغير الصورة
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-danger" style="display: none;"
+                                            id="cancel_update_image">الغاء
+                                    </button>
                                 </div>
-                                <div class="form-group" >
-                                    <label for="general_alert">شعار الشركة</label>
-                                    <div class="image">
-                                        <img src="{{ asset('admin-assets/uploads') . '/' . $data->photo }}"
-                                             alt="لوجو الشركة" class="custom_img">
-                                        <button type="button" class="btn btn-sm btn-danger" id="update_image">تغير الصورة</button>
-                                        <button type="button" class="btn btn-sm btn-danger" style="display: none;" id="cancel_update_image">الغاء</button>
-                                    </div>
-                                </div>
-                                <div id="oldImage"></div>
-                                <div class="form-group text-center">
-                                    <button type="submit" class="btn btn-primary btn-sm">حفظ التعديلات</button>
-                                </div>
+                            </div>
+                            <div id="oldImage"></div>
+                            <div class="form-group text-center">
+                                <button type="submit" class="btn btn-primary btn-sm">حفظ التعديلات</button>
+                            </div>
                         </form>
                     @else
                         <div class="alert alert-danger">

@@ -68,7 +68,7 @@
                                         @php
                                             $dt = DateTime::createFromFormat('Y-m-d H:i:s', $data->updated_at);
                                             $date = $dt->format("Y-m-d");
-                                            $time = $dt->format("H:i");
+                                            $time = $dt->format("g:i");
                                             $newDateTime = $dt->format("A");
                                             $newDateTimeType = ($newDateTime == "AM") ? 'صباحا' : 'مساء';
                                         @endphp
@@ -76,7 +76,7 @@
                                         {{$time}}
                                         {{$newDateTimeType}}
                                         بواسطة
-                                        {{$data->updated_by_admin}}
+                                        {{ $data->updated_by_admin }}
                                     @else
                                         لا يوجد تحديث
                                     @endif
