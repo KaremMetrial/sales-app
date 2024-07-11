@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\Route;
 
 
 
-//define consist pagination=
+//===================define consist pagination================================
 define('PAGINATION_COUNT', 5);
-//=================================
+//============================================================================
 
 
 
@@ -46,6 +46,8 @@ Route::group(['middleware' => 'auth:admin'], function () {
     Route::get('/treasury/show', [TreasuryController::class, 'index'])->name('.treasury.index');
     Route::get('/treasury/create', [TreasuryController::class, 'create'])->name('.treasury.create');
     Route::post('/treasury/store', [TreasuryController::class, 'store'])->name('.treasury.store');
+    Route::get('/treasury/edit/{id}', [TreasuryController::class, 'edit'])->name('.treasury.edit');
+    Route::post('/treasury/update/{id}', [TreasuryController::class, 'update'])->name('.treasury.update');
     Route::get('/treasury/destroy/{id}', [TreasuryController::class, 'destroy'])->name('.treasury.destroy');
 //==============================.\treasury==================================
 
