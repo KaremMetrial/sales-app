@@ -17,6 +17,9 @@
             <div class="card">
                 <div class="card-header">
                     <h3 class="card-title card_title_center">بيانات الخزن</h3>
+                    <input type="hidden" name="token_search" id="token_search" value="{{ csrf_token() }}">
+                    <input type="hidden" name="ajax_search_url" id="ajax_search_url"
+                           value="{{ route('admin.treasury.ajax_search') }}">
                     <a href="{{ route('admin.treasury.create') }}" class="btn btn-sm btn-success">اضافة جديد</a>
                 </div>
                 <!-- /.card-header -->
@@ -25,11 +28,12 @@
                         <input type="text" id="search_by_text" placeholder="بحث بالاسم" class="form-control">
                     </div>
                     <br>
-                    @if(isset($data) && !empty($data))
-                        @php
-                            $i = 1;
-                        @endphp
-                        <div id="ajax_response_search">
+
+                    <div id="ajax_response_search">
+                        @if( @isset($data) && !empty($data))
+                            @php
+                                $i = 1;
+                            @endphp
                             <table id="example2" class="table table-bordered table-hover">
                                 <thead class="custom_thead">
                                 <tr>
@@ -110,18 +114,20 @@
                                         $i++;
                                     @endphp
                                 @endforeach
+
                                 </tbody>
                             </table>
 
-                        </div>
-                        <div class="pagination">
-                            {{ $data->links() }}
-                        </div>
-                    @else
-                        <div class="alert alert-danger">
-                            عفوا لاتوجد بيانات لعرضها
-                        </div>
-                    @endif
+                            <div class="pagination">
+                                {{ $data->links() }}
+                            </div>
+                        @else
+                            <div class="alert alert-danger">
+                                عفوا لاتوجد بيانات لعرضها
+                            </div>
+                        @endif
+                    </div>
+
                 </div>
                 <!-- /.card-body -->
             </div>
@@ -129,4 +135,7 @@
         <!-- /.col -->
     </div>
 
+@stop
+@section('script')
+    <script src="{{ asset('admin-assets/js/treasury.js') }}"></script>
 @stop

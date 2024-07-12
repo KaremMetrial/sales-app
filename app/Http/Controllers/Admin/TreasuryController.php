@@ -7,6 +7,7 @@ use App\Http\Requests\TreasuryRequest;
 use App\Models\Admin;
 use App\Models\Treasury;
 use Exception;
+use Illuminate\Http\Request;
 
 class TreasuryController extends Controller
 {
@@ -135,7 +136,6 @@ class TreasuryController extends Controller
     }
 
 
-
     public
     function destroy($id)
     {
@@ -156,6 +156,22 @@ class TreasuryController extends Controller
         } catch (Exception $exception) {
             // Handle any exceptions and return with an error message
             return redirect()->route('admin.treasury.index')->with(['error' => 'عفوا حدث خطأ ما ' . $exception->getMessage()]);
+        }
+    }
+
+
+    public function ajax_search(Request $request)
+    {
+        if ($request->ajax()) {
+            $searchByText = $request->input('search_by_text');
+
+            $data = Treasury::where('name', 'like', '%' . $searchByText . '%')
+                ->orderBy('id', 'desc')
+                ->paginate(PAGINATION_COUNT);
+            if ($data) {
+                return view('admin.treasury.ajax_search', compact('data'))->render();
+            }
+
         }
     }
 }
